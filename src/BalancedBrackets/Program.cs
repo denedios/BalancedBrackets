@@ -19,5 +19,13 @@ namespace BalancedBrackets
 
             Console.ReadLine();
         }
+
+
+
+
+        private static bool IsBalanced(string brackets)
+        {
+            
+        }
     }
 }
