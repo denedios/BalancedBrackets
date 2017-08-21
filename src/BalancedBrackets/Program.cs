@@ -5,8 +5,6 @@ namespace BalancedBrackets
 {
     class Program
     {
-        private static readonly char[] LeftBrackets = { '{', '(', '[' };
-        private static readonly char[] RightBrackets = { '}', ')', ']' };
         private static readonly Dictionary<char, char> BracketMap = new Dictionary<char, char>()
         {
             {'}', '{'},
@@ -18,11 +16,17 @@ namespace BalancedBrackets
         {
             Console.WriteLine("Enter your brackets - ie {{[]]]((( :");
             var input = Console.ReadLine();
-            Console.WriteLine($"Is this bracket ballanced? {input}");
+            Console.WriteLine($"Is this bracket balanced? {input}");
             Console.WriteLine($"{IsBalanced(input)}!");
             Console.ReadLine();
         }
 
+        /**************************************************************************************************************************************
+         * 
+         * Uses a stack to solve the problem. If the bracket doesn't exist push onto the stack. If the bracket does exist, pop it off the stack.
+         * Keep doing this until you reach the last bracket. Afterwards if the stack is empty, the string is balanced.
+         * 
+         **************************************************************************************************************************************/
         private static bool IsBalanced(string source)
         {
             Stack<char> brackets = new Stack<char>();
